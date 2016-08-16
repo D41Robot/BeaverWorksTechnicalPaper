@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <h1>Week 4: Race!</h1>
+  </head>
+  <body>
+    <p>
+      The goals for week 4 were to confirm success for our past tasks (visual servoing and exploring
+      space), and to create a system to guide our car through a race course using the skills taught and
+      practiced in past lectures and labs. Because the task was naturally split as it was in week 3, our
+      team split into the same subteams for efficiency. Monday and Tuesday were spent refining and
+      optimizing programs from week 2 and 3 to prepare for the pre-race Tech Challenges. This process
+      included everything from calibrating individual values to reworking entire algorithms.
+    </p>
+    <p>
+      A modified potential fields code was implemented that was better suited to navigating through clear
+      paths than obstacle free space. The size of the forwards component was increased to increase speed,
+      and calibrate the variables to make the ACECA follow more towards the middle of the track . A more
+      robust algorithm for blob detection was devised and implemented. The newer program masks the image
+      for all desired colors at the same time, picks the largest identified blob, and finds the color of
+      that area of the image. This algorithm is more reliable than the previous one because it prioritizes
+      size and only size, whereas the former version prioritized color arbitrarily. This was an
+      unintentional side effect of the older program going through one color at a time, making it
+      inefficient for only the biggest one to be taken into account.
+    </p>
+    <p>
+      Wednesday was spent preparing a system for the final race within Walker Memorial, which would be
+      the real test setting. Because of that, color ranges and values for blob detection were
+      re-calibrated to the new and final setting with success in both detection and a lack of noise. The
+      values within the potential field controller code were re-calibrated for the new and final track. An
+      intermediary node between all the drive controllers was created to decide which node has the most
+      authority based on the conditions at any given time, to avoid conflict between commands or messages
+      inappropriate for the given situation being acted on.
+    </p>
+    <font size="4" color="red">Note: Stuff about final final race results here</font>
+  </body>
+</html>

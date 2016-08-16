@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <h1>Week 1: Move</h1>
+  </head>
+  <body>
+    <p>RACECAR is an acronym that stands for <b>R</b>apid <b>A</b>utonomous
+      <b>C</b>omplex-<b>E</b>nvironment <b>C</b>ompeting <b>A</b>ckermann-steering
+      <b>R</b>obot. The onboard computer was a Nvidia Jetson tx1 embedded systems module
+      GPU, mounted on the nvidia development board. The Jetson tx1 has 256 CUDA cores,
+      [1] which provides powerful and quick computing performance. The jetson runs Ubuntu
+      14.04 natively. The chassis is a Traxxas Rally, with 4 wheel drive and Front wheel
+      steering (hence Ackermann). It interfaces with the jetson through a variable
+      electronic speed control, or VESC. A router is installed on top to provide
+      networking capabilities to the RACECAR.
+    </p>
+    <p>
+      The RACECAR has a robust sensor suite installed. A 2 dimensional 270 degree scanning
+      Lidar is mounted on the front of the RACECAR. Lidar is a technology that uses a laser
+      to detect position in degrees and range of surfaces that it reflects off. This can be
+      used to create a scan of any surfaces within the lidar scan radius .  The lidar provides
+      a 40Hz .25 degree resolution, with a range of 0.06 to 10 meters. Also mounted on the car
+      is ZED passive stereo camera. A stereo camera uses two cameras mounted a constant
+      distance from each other that allows the distance of different points in an image to be
+      determined by the parallax of the image. The ZED camera provides full color image and
+      depth perception. For internal telemetry, the RACECAR has an IMU, or an Inertial
+      Measurement Unit. The IMU is capable of measuring linear accelerations along axes, as
+      well as rotational acceleration along 3 axes. An Odometer is also used to give a rough
+      estimate of how far the racecar has gone, although this method is not accurate.
+    </p>
+    <p>
+      The Robotic Operating System, or ROS, is a modular robotic development platform. It uses
+      a series of separate programs called nodes that each accomplish a single goal. These
+      nodes can be programmed independently from each other. Nodes communicate through topics,
+      which allow ROS messages to be sent between nodes. ROS messages can be user defined to
+      transmit any information desired. Through this, a complete series of programs can be
+      launched simultaneously that work together to operate the robot. Due to the modularity of
+      ROS, nodes can be reused in separate projects, greatly reducing development time in some
+      cases.
+    </p>
+    <p>
+      One main goal of this week was to implement a wall following program. In order to
+      accomplish this task, lidar data was used from the side of the desired wall to determine
+      distance from said wall. The car would then use a control system to attempt to maintain
+      a certain distance from the wall. The most basic control system is Bang-Bang. In bang
+      bang, the system outputs two states. If the distance is greater than the desired, the
+      RACECAR will steer inwards at a constant angle. If the distance less than the desired,
+      then it will steer inwards at a constant. A more robust control system is a Proportional
+      Integral Derivative, or PID, controller. The PID controller uses the sum of three values
+      to determine output. The Proportional value is the deviation from the desired value
+      multiplied by some constant Kp. This allows for the system to respond dynamically to
+      position, with small deviations corresponding to small corrections, and larger errors
+      with larger responses, in this case the steering angle. The Derivative value reduces
+      oscillations in the system by multiplying the change in error values with a constant Kd. In the RACECAR, this prevents the steering from making constant minute adjustments to the
+      steering angle and keeps a smoother path. The Integral value allows for the correction of
+      an accumulation of smaller errors by taking the integral of the errors over time and
+      multiplying them by a constant Ki. The three values are then summed to give the final
+      desired output. By changing the constants, the system can be tuned to react in the
+      desired manner. In the RACECAR PID controller implementation, the output is the steering
+      angle that is sent to the servo. 
+    </p>
+    <p>
+      The final challenge for the week was a drag race style competition. Two different teams
+      placed each car along a different wall. The cars started at the same time, each following
+      a different side. This competition tested the efficiency of each teams code in terms of
+      oscillation reduction and wall following ability. To complete this challenge, a PID
+      controller was implemented, with man teams only using a PD without the Integral
+      component. The Lidar data could be used in several was to find distance from wall,
+      ranging from a single lidar point distance to three point measurements with a known angle
+      between them and distance of each point.
+    </p>
+    <font size="8" color="red">Notes: How the laser works, diagram showing how the car is able to got its distance from wall</font>
+  </body>
+</html>
