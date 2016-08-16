@@ -1,0 +1,78 @@
+html {
+    padding-top: 0px;
+    padding-left: 130px;
+    padding-right: 130px;
+}
+
+.container {
+    color: #A55D35;
+}
+
+h1 {
+    text-align: center;
+    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+}
+
+.nav {
+}
+
+.nav ul {
+    text-align: center;
+    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+}
+
+.nav li{
+    display: inline;
+    padding: 8px;
+}
+
+.nav a {
+    font-size: 15px;
+    background-color: black;
+    color: #93B1C6;
+    cursor: pointer;
+    border: 1px solid none;
+    position: relative;
+    padding: 5px;
+}
+
+.nav a:active {
+    top: 2px;
+}
+
+.background {
+    padding: 20px;
+    /*
+    background-image: url("bridge.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+   */
+    border: 2px solid #A55D35;
+}
+
+.focus {
+    padding-bottom: 20%;
+}
+
+.focus h3 {
+    color: black;
+    font-size: 30px;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+}
+
+.focus p {
+    font-size: 20px;
+    font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+    color: black;
+    padding-right: 40%;
+    /*-webkit-text-stroke: 1px #a55d35;*/
+}
+
+.footer {
+    font-family: Copperplate, 'Copperplate Gothic Light', fantasy;
+    border: 2px solid black;
+    background-color: #a55d35;
+    color: #f0f8ff;
+    font-size: 15px;
+    text-align: right;
+}

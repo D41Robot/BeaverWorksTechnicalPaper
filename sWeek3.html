@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+  <div class="container">
+    <head>
+      <title>Week 3: Learn</title>
+      <link rel="stylesheet" type="text/css" href="main.css"/>
+    </head>
+    <body>
+      <div class="background">
+	<div class="nav">
+	  <ul>
+	    <li><a href="sWeek1.html">Week 1: Move</a></li>
+	    <li><a href="sWeek2.html">Week 2: Explore</a></li>
+	    <li><a href="sWeek3.html">Week 3: Learn</a></li>
+	    <li><a href="sWeek4.html">Week 4: Race!</a></li>
+	    <li><a href="sTechConc.html">Technical Conclusions</a></li>
+	    <li><a href="sPersNote.html">Personal Note</a></li>
+	  </ul>
+	</div>
+	<div class="focus">
+	  <br><br>
+	  <h3>Week 3: Learn</h3>
+	  <p>
+	    The goals for week 3 were to explore a space without collision while identifying and
+	    saving images of blobs of specific colors within the space. Because this task had two
+	    distinct parts, it was approached by splitting into two sub-teams: one handling
+	    collision avoidance, the other handling image and blob processing.
+	  </p>
+	  <p>
+	    To implement object avoidance and space exploration, we used a potential fields
+	    algorithm. This algorithm is a local route planner that creates a vector field around
+	    an objects it detects. In the RACECAR implementation, we used the lidar to get angel
+	    and distance of points reflected from objects. These input as vectors, and added
+	    together to create a final vector. A large vector is added behind the RACECAR to give
+	    it a forwards bias. The summation vector gives the direction in which the racecar
+	    should steer to avoid obstacles. This approach works very well as more distant objects
+	    have much less effect on the direction than close objects. A properly implemented
+	    potential fields controller will even allow the RACECAR to back away from any objects
+	    that are too close.
+	  </p>
+	  <p>
+	    Detecting blobs of specified colors and saving images of them is a multistep process.
+	    First, an image perceived by the ZED camera is converted into HSV format, before being
+	    masked. Then, the image is masked with already specified color ranges. Determining
+	    which color ranges to mask to get the appropriate results required logic and sense
+	    alongside trial and error. The masks of each color are created one at a time, and this
+	    process terminates once a blob of significant size is found. To accomplish the literal
+	    detection of color and size, OpenCV contour detection technology is used. Once a blob
+	    is identified, it is saved as a .jpg image within a specified directory, with a
+	    filename that indicates the color and color-count of that blob.
+	  </p>
+	  <p>
+	    In order to accomplish the challenge, a launch file was created that launched two other
+	    launch files and the two challenge specific nodes. First, the launch file initiated a
+	    teleoperation launch file, which allowed for remote control overrides of the vehicle if
+	    necessary, as well as beginning the ROS master controller. Next, the Zed Camera launch
+	    file was started to give us access to image data. The two nodes that were launched were
+	    the potential fields controller that was responsible for the actual driving of the
+	    vehicle, and the blob detection node that captured screenshots of identified objects. 
+	  </p>
+	  <p>
+	    During the final race, this software caused 17 collisions, but did detect 4 blobs and
+	    follow the necessary procedure for each. One of the biggest obstacles for both parts of
+	    the task was calibration, and a lack of time to properly test and calibrate values for
+	    both of these programs hindered our success. For space exploration, calibration
+	    consisted of seeing how the current values within the code caused the car to run, and
+	    adjusting those accordingly. For blob detection, calibration consisted of testing our
+	    software with provided color swatches on the track, and figuring out the best achievable
+	    color ranges (detecting enough of a color to notice it reliably, without catching
+	    extraneous traces of it).
+	  </p>
+	  <font size="4" color="red">Note: insert video of run. Example saved photo</font><br>
+	  <font size="4" color="red">Note: insert node graph</font>
+	</div>
+      </div>
+      <div class="footer">
+      </div>
+    </body>
+  </div>
+</html>
